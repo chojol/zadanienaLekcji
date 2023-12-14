@@ -17,7 +17,7 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         Dialog.setFont(font)
         self.layoutWidget = QtWidgets.QWidget(parent=Dialog)
-        self.layoutWidget.setGeometry(QtCore.QRect(224, 150, 441, 208))
+        self.layoutWidget.setGeometry(QtCore.QRect(224, 150, 561, 461))
         self.layoutWidget.setObjectName("layoutWidget")
         self.layout = QtWidgets.QFormLayout(self.layoutWidget)
         self.layout.setContentsMargins(0, 0, 0, 0)
@@ -52,6 +52,12 @@ class Ui_Dialog(object):
         self.pushButton_zapisz = QtWidgets.QPushButton(parent=self.layoutWidget)
         self.pushButton_zapisz.setObjectName("pushButton_zapisz")
         self.layout.setWidget(5, QtWidgets.QFormLayout.ItemRole.FieldRole, self.pushButton_zapisz)
+        self.listWidget_praco = QtWidgets.QListWidget(parent=self.layoutWidget)
+        self.listWidget_praco.setObjectName("listWidget_praco")
+        self.layout.setWidget(7, QtWidgets.QFormLayout.ItemRole.FieldRole, self.listWidget_praco)
+        self.pushButton_plikZapisz = QtWidgets.QPushButton(parent=self.layoutWidget)
+        self.pushButton_plikZapisz.setObjectName("pushButton_plikZapisz")
+        self.layout.setWidget(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.pushButton_plikZapisz)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -65,6 +71,7 @@ class Ui_Dialog(object):
         self.pesel_label.setText(_translate("Dialog", "Pesel"))
         self.checkBox_umowa.setText(_translate("Dialog", "Umowa o prace"))
         self.pushButton_zapisz.setText(_translate("Dialog", "Zapisz"))
+        self.pushButton_plikZapisz.setText(_translate("Dialog", "Zapisz do pliku"))
 
 
 if __name__ == "__main__":

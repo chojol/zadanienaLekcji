@@ -8,8 +8,8 @@ class MyForm(QDialog):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.pushButton_zapisz.clicked.connect(self.getOsobaData)
-        self.ui.pushButton_zapisz.clicked.connect(self.addToFile)
+        self.ui.pushButton_plikZapisz.clicked.connect(self.getOsobaData)
+        self.ui.pushButton_zapisz.clicked.connect(self.dodajPlik)
         self.show()
 
     def isPeselValid(self, pesel):
@@ -22,15 +22,7 @@ class MyForm(QDialog):
         nrTel = self.ui.lineEdit_tel.text()
 
         dane = f"{imie} {nazwisko}"
-
-        if self.isPeselValid(pesel):
-            self.ui.layout.addItem(dane)
-        else:
-            crash = QMessageBox()
-            crash.setText("pesel jest zly")
-            crash.exec()
-
-    def addToFile(self):
+    def dodajPlik(self):
         imie = self.ui.lineEdit_imie.text()
         nazwisko = self.ui.lineEdit_nazwisko.text()
         pesel = self.ui.lineEdit_pesel.text()
@@ -42,6 +34,7 @@ class MyForm(QDialog):
         if self.isPeselValid(pesel):
             with open(employees_file, 'a') as file:
                 file.write(f"{dane}\n")
+            self.ui.listWidget_praco.addItem(f"{imie} {nazwisko}")
         else:
             crash = QMessageBox()
             crash.setText("pesel nie jest poprawny")
